@@ -8,6 +8,7 @@ public class GameContainer implements Runnable{
 	private Window window;
 	private Renderer renderer;
 	private Input input;
+	private AbstractGame game;
 	private boolean running;
 	public static double UPDATE_CAP = 1.0/144.0;
 	
@@ -16,8 +17,8 @@ public class GameContainer implements Runnable{
 	private String title = "YanEngine v1.0";
 	
 	
-	public GameContainer() {
-		
+	public GameContainer(AbstractGame game) {
+		this.game = game;
 	}
 	public void start() {
 		
@@ -64,9 +65,7 @@ public class GameContainer implements Runnable{
 				render = true;
 				//TODO: Update Game
 				
-				if(input.isButton(MouseEvent.BUTTON1)) {
-					Renderer.test = 1;
-				}
+				game.update(this, (float)UPDATE_CAP);
 				
 				input.update();
 				if(frameTime >= 1.0) {
@@ -81,6 +80,7 @@ public class GameContainer implements Runnable{
 				renderer.clear();
 				
 				//TODO: Render game
+				game.render(this, renderer);
 				window.update();
 				frames++;
 			}
@@ -123,14 +123,14 @@ public class GameContainer implements Runnable{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public static void main(String[] args) {
-		GameContainer gc = new GameContainer();
-		gc.start();
-	}
+	
 	public Window getWindow() {
 		return window;
 	}
 	public void setWindow(Window window) {
 		this.window = window;
+	}
+	public Input getInput() {
+		return input;
 	}
 }
