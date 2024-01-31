@@ -15,7 +15,7 @@ public class Renderer {
 	}
 	public void clear() {
 		for(int i = 0 ; i < pixels.length; i++) {
-			pixels[i] += i+20000;
+			pixels[i] = 0;
 			
 		}
 	}
@@ -29,10 +29,28 @@ public class Renderer {
 	}
 	
 	public void drawImage(Image image, int offx, int offy) {
+		//dont render image if out of frame
+		int newX = 0;
+		int newY = 0;
+		int endWidth = image.getW();
+		int endHeight = image.getH();
+		if(offx < 0 ) {
+			newX = newX - offx;
+		}
+		if(offy < 0 ) {
+			newY = newY - offy;
+		}
 		
-		for(int y = 0 ; y < image.getH(); y++) {
+		if(endWidth + offx > pW) {
+			endWidth =  pW - offx;
+		}
+		if(endHeight + offy > pH) {
+			endHeight = pH - offy;
+		}
+		//render image pixel by pixel
+		for(int y = newY ; y < endHeight; y++) {
 			
-			for(int x = 0 ; x < image.getW(); x++) {
+			for(int x = newX ; x < endWidth; x++) {
 				setPixel(x + offx, y + offy, image.getPixels()[x + y * image.getW()]);
 				
 			}

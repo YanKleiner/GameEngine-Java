@@ -25,12 +25,8 @@ public class GameManager extends AbstractGame {
 	@Override
 	public void render(GameContainer gc, Renderer renderer) {
 		
-		if(gc.getInput().isKey(KeyEvent.VK_0)) {
-			x = gc.getInput().getMouseX();
-			y = gc.getInput().getMouseY();
-			renderer.drawImage(image, gc.getInput().getMouseX(), gc.getInput().getMouseY());
-		}
-		renderer.drawImage(image, x, y);
+		
+		renderer.drawImage(image, gc.getInput().getMouseX() - 32, gc.getInput().getMouseY() - 32);
 		
 	}
 	public static void main(String[] args) {
