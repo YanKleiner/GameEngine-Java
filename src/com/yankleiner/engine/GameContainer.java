@@ -7,8 +7,8 @@ public class GameContainer implements Runnable{
 	private boolean running;
 	private final double UPDATE_CAP = 1.0/60.0;
 	
-	private int width = 320, height = 240;
-	private float scale = 3f;
+	private int width = 1920, height = 1080;
+	private float scale = 1f;
 	private String title = "YanEngine v1.0";
 	
 	
