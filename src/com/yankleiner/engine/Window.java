@@ -4,9 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Window {
@@ -24,10 +27,12 @@ public class Window {
 		canvas.setMaximumSize(dimension);
 		canvas.setMinimumSize(dimension);
 		
+	
 		frame = new JFrame(gc.getTitle());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.add(canvas, BorderLayout.CENTER);
+		
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);

@@ -1,14 +1,18 @@
 package com.yankleiner.engine;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+
 public class GameContainer implements Runnable{
 	private Thread thread;
 	private Window window;
 	private Renderer renderer;
+	private Input input;
 	private boolean running;
-	private final double UPDATE_CAP = 1.0/60.0;
+	public static double UPDATE_CAP = 1.0/144.0;
 	
-	private int width = 1920, height = 1080;
-	private float scale = 1f;
+	private int width = 300, height = 200;
+	private float scale = 3f;
 	private String title = "YanEngine v1.0";
 	
 	
@@ -19,6 +23,7 @@ public class GameContainer implements Runnable{
 		
 		window = new Window(this);
 		renderer = new Renderer(this);
+		input = new Input(this);
 		thread = new Thread(this);
 		thread.run();
 		
@@ -58,6 +63,12 @@ public class GameContainer implements Runnable{
 				unprocessedTime -= UPDATE_CAP;
 				render = true;
 				//TODO: Update Game
+				
+				if(input.isButton(MouseEvent.BUTTON1)) {
+					Renderer.test = 1;
+				}
+				
+				input.update();
 				if(frameTime >= 1.0) {
 					frameTime = 0;
 					fps = frames;
