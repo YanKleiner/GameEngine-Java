@@ -10,7 +10,7 @@ public class GameContainer implements Runnable{
 	private Input input;
 	private AbstractGame game;
 	private boolean running;
-	public static double UPDATE_CAP = 1.0/144.0;
+	public static double UPDATE_CAP = 1.0/60.0;
 	
 	private int width = 300, height = 200;
 	private float scale = 3f;

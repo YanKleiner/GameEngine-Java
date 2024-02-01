@@ -7,12 +7,15 @@ import com.yankleiner.engine.AbstractGame;
 import com.yankleiner.engine.GameContainer;
 import com.yankleiner.engine.Renderer;
 import com.yankleiner.engine.gfx.Image;
+import com.yankleiner.engine.gfx.ImageTile;
 
 public class GameManager extends AbstractGame {
 	private int x, y;
-	private Image image ;
+	private ImageTile image;
+	private float temp;
+	//private Image image ;
 	public GameManager() {
-		image = new Image("/testimage2.png");
+		image = new ImageTile("/testTexture.png", 16, 16);
 		
 	}
 	@Override
@@ -20,13 +23,17 @@ public class GameManager extends AbstractGame {
 		if(gc.getInput().isKeyDown(KeyEvent.VK_A)) {
 			System.out.println("A was pressed once");
 		}
+		temp += dt*20;
+		if(temp > 3) temp = 0 ;
 	}
 
 	@Override
 	public void render(GameContainer gc, Renderer renderer) {
 		
-		
-		renderer.drawImage(image, gc.getInput().getMouseX() - 32, gc.getInput().getMouseY() - 32);
+		if(gc.getInput().isButton(MouseEvent.BUTTON1)) {
+			renderer.drawImageTile(image, gc.getInput().getMouseX() - 8, gc.getInput().getMouseY() - 16, (int)temp, (int)temp );
+		}
+		//renderer.drawImageTile(image, gc.getInput().getMouseX() - 8, gc.getInput().getMouseY() - 16, (int)temp, (int)temp );
 		
 	}
 	public static void main(String[] args) {
