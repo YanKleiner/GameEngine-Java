@@ -1,6 +1,7 @@
 package com.yankleiner.engine;
 import java.awt.image.DataBufferInt;
 
+import com.yankleiner.engine.gfx.Font;
 import com.yankleiner.engine.gfx.Image;
 import com.yankleiner.engine.gfx.ImageTile;
 
@@ -8,6 +9,8 @@ public class Renderer {
 
 	private int pW, pH;
 	private int[] pixels;
+	
+	
 	public Renderer(GameContainer gc) {
 
 		pW = gc.getWidth();
@@ -29,7 +32,34 @@ public class Renderer {
 
 		pixels[x + y *pW] = value;
 	}
-
+	
+	public void drawText(String text, int offx, int offy, int color, Font font) {
+		Image fontImage = font.getFontImage();
+		int letterPointer = 0;
+		
+		text = text.toUpperCase();
+		
+		for(int i = 0 ; i < text.length(); i++) {
+			
+			int unicode = text.codePointAt(i) - 32; //make it start at useful unicodes
+			
+			for(int y = 0 ; y < fontImage.getH(); y++) {  //for every height
+				for(int x = 0; x < font.getWidths()[unicode]; x++) {   //setPixels for as long as unicode is long
+					
+					if(fontImage.getPixels()[x + font.getOffsets()[unicode] + y * fontImage.getW()] == 0xffffffff) {
+						setPixel(x + offx + letterPointer, y + offy, color);  //at specific offset
+					}
+				}
+			}
+			letterPointer += font.getWidths()[unicode];  // print every letter at each pointer
+			
+			
+		}
+	}
+	
+	
+	
+	
 	public void drawImage(Image image, int offx, int offy) {
 
 		

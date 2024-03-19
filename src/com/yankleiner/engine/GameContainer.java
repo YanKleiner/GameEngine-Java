@@ -1,7 +1,10 @@
 package com.yankleiner.engine;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+
+import com.yankleiner.engine.gfx.Font;
 
 public class GameContainer implements Runnable{
 	private Thread thread;
@@ -77,10 +80,12 @@ public class GameContainer implements Runnable{
 			}
 			
 			if(render) {
-				//renderer.clear();
+				renderer.clear();
 				
 				//TODO: Render game
 				game.render(this, renderer);
+				renderer.drawText("FPS" + fps, 0, 0, 0xff00ffff, new Font("/standard.png"));
+				
 				window.update();
 				frames++;
 			}
