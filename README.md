@@ -4,7 +4,7 @@
 This is a 2D Game Engine Library developed by me, without external dependencies.
 
 ## Motivation
-The motivation behind creating this 2D Game Engine stems from a desire to understand the inner workings of larger, more abstract engines like Unity. The creator felt that the abstraction in such engines sometimes obscured the essence of what a game engine truly is. Thus, they embarked on developing their own game engine in the form of a Java library, aiming to encompass the fundamental methods and classes required for 2D game development.
+The motivation behind creating this 2D Game Engine stems from a desire to understand the inner workings of larger, more abstract engines like Unity. I felt that the abstraction in such engines sometimes obscured the essence of what a game engine truly is. Thus, I embarked on developing my own game engine in the form of a Java library, aiming to encompass the fundamental methods and classes required for 2D game development.
 
 ## ⚙️Quick Setup⚙️
 ### Cloning the Repository
