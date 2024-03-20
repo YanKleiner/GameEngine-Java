@@ -14,6 +14,9 @@ Clone the repository to your local machine using the following command:
 git clone https://github.com/YanKleiner/GameEngine-Java.git
 Note: JDK 20 (including JRE 20 and Development Tools) is required for the engine to function properly.
 ```
+```shell
+Note: JDK 20 (including JRE 20 and Development Tools) is required for the engine to function properly.
+```
 
 #`The repository comprises the following main components:
 
