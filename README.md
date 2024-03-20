@@ -19,11 +19,11 @@ Note: JDK 20 (including JRE 20 and Development Tools) is required for the engine
 
 # The repository comprises the following main components:
 
-## * 🔧Engine🔧
+* ## 🔧Engine🔧
 Contains classes essential for creating your game, such as input handling, rendering, and the game loop.
 
-## * Game
+* ## Game
 Includes the GameManager, responsible for managing game updates and rendering objects like images and image tiles.
 
-## * 🔗JDK Version
+* ## 🔗JDK Version
 This library is compatible with JDK version 20.01.
