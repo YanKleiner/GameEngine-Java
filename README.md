@@ -1,23 +1,27 @@
-## 'GameEngine-Java
+#`GameEngine-Java
 
-#' This is a 2D Game Engine Libary made by me without any external libaries
+## Overview
+This is a 2D Game Engine Library developed by the creator without external dependencies.
 
-#Why an own 2D Game Engine?
-All of the time ive been wondering how big and abstract Game Engines like Unity Work. 
-For me it seemed like the abstraction kind of stole the essence of what a game Engine actually is.
-So i decided to code my own Game Engine in the form of a libary in Java that includes the basic methods and classes needed for 2D Games to work.
+## Motivation
+The motivation behind creating this 2D Game Engine stems from a desire to understand the inner workings of larger, more abstract engines like Unity. The creator felt that the abstraction in such engines sometimes obscured the essence of what a game engine truly is. Thus, they embarked on developing their own game engine in the form of a Java library, aiming to encompass the fundamental methods and classes required for 2D game development.
 
+## Quick Setup
+### Cloning the Repository
+Clone the repository to your local machine using the following command:
 
-Quick Setup: 
-*Clone The repository on your own device: 
-'''shell
-git clone https://github.com/YanKleiner/GameEngine-Java.git 
-'''
--IMPORTANT: JDK 20 (JRE 20, amd Development Tools of JDK) are required for it to work
-* Open Game Engine in your prefered IDE!
-* 
+```shell
+git clone https://github.com/YanKleiner/GameEngine-Java.git
+Note: JDK 20 (including JRE 20 and Development Tools) is required for the engine to function properly.
+```
 
-->Engine: contains the classes that can be used for creating your game like input, Renderer, Game Loop
-->game :  contains the GameManager (update method :that updates with a customizable frame rate + render method for rendering objects like an Image/ImageTile) 
+#`The repository comprises the following main components:
 
-JDK Version: 20.01  
+#Engine
+Contains classes essential for creating your game, such as input handling, rendering, and the game loop.
+
+#Game
+Includes the GameManager, responsible for managing game updates and rendering objects like images and image tiles.
+
+#JDK Version
+This library is compatible with JDK version 20.01.
